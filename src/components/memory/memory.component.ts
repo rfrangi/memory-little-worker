@@ -51,6 +51,7 @@ export class MemoryComponent implements OnInit, OnDestroy {
 
   onParamsChange(params: any): any {
     if (params.id){
+
       this.initGameByHisto(params.id);
     } else {
       this.initGame();
@@ -70,17 +71,38 @@ export class MemoryComponent implements OnInit, OnDestroy {
     }
   }
 
-  clickOnCard(cardSelected: Card): void {
+  clickOnCardAuto(cardSelected: Card): void {
     if (this.histoReplay){
       cardSelected.status = 'success';
+      if (!this.firstCardSelected) {
+        this.firstCardSelected = cardSelected;
+        return;
+      }
+
+      if (this.firstCardSelected.code === cardSelected.code) {
+        cardSelected.status = 'success';
+        this.firstCardSelected = undefined;
+      } else {
+        this.hasRightSelected = false;
+        setTimeout(() => {
+          cardSelected.status = 'default';
+          this.firstCardSelected.status = 'default';
+          this.firstCardSelected = undefined;
+        }, 2000);
+      }
+
       if (!this.cards.some(card => card.status === 'default')) {
         this.subscription.unsubscribe();
       }
       return;
     }
-    cardSelected.time = this.tick * 1000;
-    this.histo.actions.push(cardSelected);
+  }
 
+  clickOnCard(cardSelected: Card): void {
+    // TODO: Refactor, possibilité de créer des méthode pour chaque cas
+    cardSelected.time = this.tick * 1000;
+    this.histo.actions.push(new Card(cardSelected));
+    console.log(this.histo.actions);
     // Au 1er clique, on initialise le timer
     if (this.firstClick) {
       this.initTimer();
@@ -119,10 +141,10 @@ export class MemoryComponent implements OnInit, OnDestroy {
       this.histo.score = this.tick * 1000;
       this.historyService.saveHisto(this.histo);
       this.memoryService.saveScore(this.histo.score).subscribe(
-        () => alert(`Bravo, votre score est de ${this.histo.score}`),
+        () => {},
         err => console.error(err)
       );
-
+      alert(`Bravo, votre score est de ${this.histo.score}`);
       this.initGame();
     }
   }
@@ -137,7 +159,7 @@ export class MemoryComponent implements OnInit, OnDestroy {
           if (cardHisto) {
             const cardMAJ = this.cards.find(c => c.order === cardHisto.order);
             if (cardMAJ) {
-              this.clickOnCard(cardMAJ);
+              this.clickOnCardAuto(cardMAJ);
             }
           }
         }

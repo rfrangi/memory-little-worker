@@ -22,7 +22,7 @@ export class HistoryService {
 
   public getById(id: string): Histo | null | undefined {
     const histoList = this.getAll();
-    return histoList != null ? histoList.find((h: Histo) => h.id = id) : null;
+    return histoList != null ? histoList.find((h: Histo) => h.id === id) : null;
   }
 
   public getAll(): Array<Histo> | null {
