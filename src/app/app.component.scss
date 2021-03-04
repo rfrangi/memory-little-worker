@@ -1,0 +1,15 @@
+.menu {
+  position: absolute;
+  right: 2em;
+  font-weight: normal;
+  cursor: pointer;
+
+  mat-icon {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    font-weight: 300;
+    color:  snow;
+  }
+}

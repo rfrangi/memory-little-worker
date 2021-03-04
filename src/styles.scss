@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+
+  h1 {
+    text-align: center;
+    color: #00838f;
+  }
+
+  form {
+    display: block;
+    margin: 0 auto;
+    padding: 1em;
+    width: 20em;
+
+    mat-form-field {
+      width: 100%;
+    }
+    mat-error {
+      color: red!important;
+    }
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #00838f;
+
+    mat-icon {
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+
+    &:hover {
+      font-weight: 300;
+      color:  #37474f;
+    }
+  }
+}
+
+
+
+
+
+

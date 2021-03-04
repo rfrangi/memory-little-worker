@@ -1,0 +1,46 @@
+p {
+  width: 100%;
+  text-align: center;
+}
+
+mat-icon {
+  color: #00838f;
+}
+
+table {
+  width: calc(100% - 2em)!important;
+  border-spacing: 0;
+  margin: auto;
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:nth-child(even) {
+    background-color: #eceaea;
+  }
+
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  tbody td {
+    text-align: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.9em;
+
+    mat-icon {
+      margin: 0;
+    }
+  }
+
+  thead th {
+    color: white;
+    cursor: pointer;
+    background: #00838f;
+    text-align: center;
+    padding: 10px;
+    font-weight: 500;
+  }
+}

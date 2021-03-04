@@ -1,0 +1,19 @@
+section {
+  width: 100%;
+  text-align: center;
+
+  p {
+    color: grey;
+    font-weight: bold;
+  }
+
+  p, span {
+    display: block;
+  }
+}
+
+.plateau {
+  width: 25em;
+  margin: 2em auto;
+
+}
