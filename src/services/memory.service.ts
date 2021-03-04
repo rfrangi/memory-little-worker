@@ -30,7 +30,7 @@ export class MemoryService {
       new Card({code: 'SKYPE', img: 'assets/icon-skype.svg'}),
       new Card({code: 'SNAPCHAT', img: 'assets/icon-snapchat.svg'}),
       new Card({code: 'WHATSAPP', img: 'assets/icon-whatsapp.svg'}),
-      new Card({code: 'YOUTUBE', img: 'assets/icon-youtube.svg'}),*/
+      new Card({code: 'YOUTUBE', img: 'assets/icon-youtube.svg'}),
       new Card({code: 'FACEBOOK', img: 'assets/icon-facebook.svg'}),
       new Card({code: 'INSTAGRAM', img: 'assets/icon-instagram.svg'}),
       new Card({code: 'LINKEDIN', img: 'assets/icon-linkedin.svg'}),
